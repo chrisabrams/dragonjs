@@ -54,7 +54,7 @@ Dragon.Class.prototype.getParentClass = function(parent) {
 		throw {
 			name: "ClassNonexistent",
 			message: "The class " + parent + " does not exist"
-		}};
+		};
 	}
 	
 	//do extending stuff here
