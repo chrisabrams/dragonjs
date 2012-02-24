@@ -73,7 +73,7 @@ Dragon.Class.prototype.getParentClassConstructor = function(parent) {
 		throw {
 			name: "ClassNonexistent",
 			message: "The class " + parent + " does not exist"
-		}};
+		};
 	}
 
 	return this.prototype.constructor = parentClass.prototype.constructor;
