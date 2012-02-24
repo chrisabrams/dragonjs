@@ -2,7 +2,7 @@
  * Dragon.Class()
  * Does cool class stuff
  */
-var Dragon.Class = function(o) {
+Dragon.Class = function(o) {
 	var constructor = o.constructor || function() {};
 	var parent = o.extend || false;
 
