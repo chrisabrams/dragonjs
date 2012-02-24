@@ -1,3 +1,27 @@
+// Array Remove - By John Resig (MIT Licensed)
+Array.prototype.remove = function(from, to) {
+  var rest = this.slice((to || from) + 1 || this.length);
+  this.length = from < 0 ? this.length + from : from;
+  return this.push.apply(this, rest);
+};
+/** 
+ * Object.foreach() by Chris Abrams
+ * Loop through an object and return key & (optional) value
+ * 
+ * MIT License //gist link here
+ */
+Object.prototype.foreach = function(callback) {
+	var obj = this;
+
+	for(var key in obj) {
+		var val = obj[key];
+		
+		//Skip properties in prototype
+		if(!Object.prototype.hasOwnProperty(key.toString())) {
+			callback(key, val);
+		}
+	}
+};
 var Dragon = Dragon || {};
 /**
  * Dragon.Class()

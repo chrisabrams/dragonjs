@@ -15,6 +15,8 @@ function concat(fileList, distPath) {
 }
 
 concat([
+    'src/helpers/Array.js',
+    'src/helpers/Object.js',
     'src/dragon.js',
     'src/core/class.js',
     'src/mvc/view.js'
