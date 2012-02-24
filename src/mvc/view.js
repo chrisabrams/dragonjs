@@ -3,7 +3,7 @@
  * Does cool view stuff
  */
 Dragon.View = function(o) {
-	this.el = o.el || return; //If you don't define the element, what is the point of a view?
+	this.el = o.el || false; //If you don't define the element, what is the point of a view?
 
 	var events = this.events;
 	
