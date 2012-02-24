@@ -22,6 +22,9 @@ Object.prototype.foreach = function(callback) {
 		}
 	}
 };
+String.prototype.startsWith = function(str) {
+    return ( str === this.substr( 0, str.length ) );
+}
 var Dragon = Dragon || {};
 /**
  * Dragon.Class()
@@ -83,12 +86,18 @@ Dragon.View = function(o) {
 	this.el = o.el || return; //If you don't define the element, what is the point of a view?
 
 	var events = this.events;
+	
 	//If events are defined
 	if(events != null) {
+		
 		//Loop through events
-		for(var index in events) {
-			var selector = events[index];
-		}
+		events.foreach(function(sel, act) {
+			var selector = sel.toString();
+
+			if(selector.startsWith("#")) {
+				console.log(act());
+			}
+		});
 	}
 };
 
