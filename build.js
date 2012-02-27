@@ -15,10 +15,10 @@ function concat(fileList, distPath) {
 }
 
 concat([
+    'src/core/core.js',
+    'src/core/class.js',
+    'src/mvc/view.js',
     'src/helpers/Array.js',
     'src/helpers/Object.js',
-    'src/helpers/String.js',
-    'src/dragon.js',
-    'src/core/class.js',
-    'src/mvc/view.js'
+    'src/helpers/String.js'
 ], DIST_FILE_PATH);
