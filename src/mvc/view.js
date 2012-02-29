@@ -14,19 +14,19 @@ Dragon.View = function(o) {
 	this.init();
 
 	//If template was defined by user
-	if(typeof this.template == "function") {
-		
+	if(typeof this.template == "object") {
+		this.renderTemplate(this.template);
 	}
 	//Look for template on the page
 	else {
 		//If template is embedded to page
-		var el = document.getElementById(this.el);
+		/*var el = document.getElementById(this.el);
 		if(el == null) {
 			throw {
 				name: "ElementNonexistent",
 				message: "The element " + this.el + " does not exist on the page"
 			};
-		}
+		}*/
 	}
 };
 
@@ -98,10 +98,10 @@ Dragon.View.prototype.delegateEvents = function() {
 Dragon.View.prototype.init = function() {};
 
 /**
- * @method Dragon.View.template
+ * @method Dragon.View.renderTemplate
  * @desc   Renders the HTML for the view
- * @usage  Optional
- * @type   {Object}
+ * @usage  None; called by constructor
+ * @type   {Function}
  * 
  * @param  {Object} o [required]
  *     @prop {Object} data [optional]
@@ -109,12 +109,10 @@ Dragon.View.prototype.init = function() {};
  *
  * @return {Object} Rendered template
  */
-Dragon.View.prototype.template = {
-	this.data    = o.data || {};
-	this.source  = o.source || false;
-	
+Dragon.View.prototype.renderTemplate = function(o) {
+
 	//Does the tempalte have a source (ajax)?
-	switch(this.source) {
+	switch(o.source) {
 		
 		//Source is on the page
 
@@ -138,4 +136,19 @@ Dragon.View.prototype.template = {
 		default:
 
 	}
+};
+
+/**
+ * @method Dragon.View.template
+ * @desc   Holds options for template
+ * @usage  Required
+ * @type   {Object}
+ *
+ * @example
+ *     template: {
+ *       source: "http://mydomain.com/template.html"
+ *     }
+ */
+Dragon.View.prototype.template = {
+	source: "embedded"
 };

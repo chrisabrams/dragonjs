@@ -1,0 +1,14 @@
+{
+  "name": "DragonJS",
+  "description": "Javascript MVC Framework",
+  "author": "Chris Abrams",
+  "version": "0.0.1",
+  "dependencies": {
+    
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*"
+  },
+  "engine": "node >= 0.6.6"
+}
