@@ -67,6 +67,7 @@ Dragon.View = function(o) {
 	this.el = o.el || false;
 	if(o.events) {this.events = o.events}
 	if(o.init) {this.init = o.init}
+	if(o.parent) {this.parent = o.parent}
 	if(o.template) {this.template = o.template} else {this.template == false;}
 	
 	//Run initialization, if there is anything there
@@ -96,11 +97,15 @@ Dragon.View = function(o) {
  *
  * @example
  *     events: {
- *       "#selector": click(fn),
- *       ".selector": hover({
- *         start: fn,
- *         stop: fn	
- *       }),
+ *       click: {
+ *	       ".selector": fn
+ *       },
+ *       hover: {
+ *         ".selector": {
+ *	         start: fn,
+ *           stop: fn
+ *         }
+ *       },
  *     }
  */
 Dragon.View.prototype.events = {};
@@ -157,6 +162,16 @@ Dragon.View.prototype.delegateEvents = function() {
 Dragon.View.prototype.init = function() {};
 
 /**
+ * @object Dragon.View.parent
+ * @desc Where view is to be appened. Serves as parent element to view.
+ * @type {String} if supplied or {Boolean} if not
+ *
+ * @example
+ *     parent: "#someparentelement"
+ */
+Dragon.View.prototype.parent = false;
+
+/**
  * @method Dragon.View.renderTemplate
  * @desc   Renders the HTML for the view
  * @usage  None; called by constructor
@@ -209,6 +224,7 @@ Dragon.View.prototype.renderTemplate = function(o) {
  *     }
  */
 Dragon.View.prototype.template = {
+	data: {},
 	source: "embedded"
 };
 // Array Remove - By John Resig (MIT Licensed)
@@ -228,9 +244,9 @@ Object.prototype.foreach = function(callback) {
 
 	for(var key in obj) {
 		var val = obj[key];
-		
-		//Skip properties in prototype
-		if(!Object.prototype.hasOwnProperty(key.toString())) {
+
+		//Check for property or else prototype properties will get thrown in the mix
+		if(obj.hasOwnProperty(key)) {
 			callback(key, val);
 		}
 	}

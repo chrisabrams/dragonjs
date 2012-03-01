@@ -9,9 +9,9 @@ Object.prototype.foreach = function(callback) {
 
 	for(var key in obj) {
 		var val = obj[key];
-		
-		//Skip properties in prototype
-		if(!Object.prototype.hasOwnProperty(key.toString())) {
+
+		//Check for property or else prototype properties will get thrown in the mix
+		if(obj.hasOwnProperty(key)) {
 			callback(key, val);
 		}
 	}
