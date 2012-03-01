@@ -26,4 +26,4 @@ Dragon.js has the following goals:
 
 ### To build a version (requires node.js):
 
-		node build.js
+		node build/build.js
