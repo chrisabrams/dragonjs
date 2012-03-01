@@ -19,11 +19,11 @@ Dragon.js has the following goals:
 1. To make Javascript MVC simple
 
 ## Tools
-### To run all tests (requires node.js and npm):
+### To run all tests (requires node.js & npm):
 
 		npm install
 		make
 
-### To build a version (requires node.js):
+### To build a version (requires node.js & npm):
 
 		node build/build.js
