@@ -75,58 +75,58 @@ Dragon.View = function(o) {
 	}
 	
 	if(o.events) {
-		this.events = o.events;
+		_this.events = o.events;
 	}
 	if(o.height) {
 		switch(o.height) {
 			case "window":
 				_this.height = window.innerHeight;
-				_this.el.style.height = _this.height;
+				_this.el.style.height = _this.height + "px";
 				break;
 
 			default:
 				if(typeof o.height = "number") {
 					_this.height = o.height;
-					_this.el.style.height = _this.height;
+					_this.el.style.height = _this.height + "px";
 				}
 		}
 	} else {
 		_this.height = _this.el.offsetHeight;
-		_this.el.style.height = _this.height;
-	};
-	if(o.init) {
-		this.init = o.init;
+		_this.el.style.height = _this.height + "px";
 	}
-	if(o.parent) {this.parent = o.parent}
+	if(o.init) {
+		_this.init = o.init;
+	}
+	if(o.parent) {_this.parent = o.parent}
 	if(o.template) {
-		this.template = o.template;
+		_this.template = o.template;
 	} else {
-		this.template == false;
+		_this.template == false;
 	}
 	if(o.width) {
 		switch(o.width) {
 			case "window":
 				_this.width = window.innerWidth;
-				_this.el.style.width = _this.width;
+				_this.el.style.width = _this.width + "px";
 				break;
 
 			default:
 				if(typeof o.width = "number") {
 					_this.width = o.width;
-					_this.el.style.width = _this.width;
+					_this.el.style.width = _this.width + "px";
 				}
 		}		
 	} else {
 		_this.width = _this.el.offsetWidth;
-		_this.el.style.width = _this.width;
-	};
+		_this.el.style.width = _this.width + "px";
+	}
 	
 	//Run initialization, if there is anything there
-	this.init();
+	_this.init();
 
 	//If template was defined by user
-	if(typeof this.template == "object") {
-		this.renderTemplate(this.template);
+	if(typeof _this.template == "object") {
+		_this.renderTemplate(_this.template);
 	}
 	//Look for template on the page
 	else {
