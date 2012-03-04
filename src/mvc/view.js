@@ -177,8 +177,41 @@ Dragon.View.prototype.parent = false;
  */
 Dragon.View.prototype.renderTemplate = function(o) {
 
+	var _this = this;
+
 	//Does the tempalte have a source (ajax)?
-	switch(o.source) {
+	if(o.source) {
+		//Make ajax request
+		if (window.XMLHttpRequest) {
+			var request = new XMLHttpRequest();
+
+			xmlhttp.onreadystatechange = function() {
+				if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+    				var res = xmlhttp.responseText;
+    			}
+  			}
+			xmlhttp.open("GET", o.source, true);
+			xmlhttp.send();
+
+			if(res) {
+				var render = document.createElement("div"); //Un-used element to contain templates
+				render.innerHTML = res.responseText; //Put templates inside <div> so that they are now HTML
+				var templates = render.getElementsByTagName("script"); //Grab all templates
+
+				//Loop through and find template
+				_.find(templates, function(el, i) {
+					if(el.id == o.id) {
+
+						//Insert template into view
+						_this.el.innerHTML = el;
+
+						return;
+					}
+				});
+			}
+		}
+	}
+	/*switch(o.source) {
 		
 		//Source is on the page
 
@@ -201,7 +234,7 @@ Dragon.View.prototype.renderTemplate = function(o) {
 		//Not sure yet what goes here
 		default:
 
-	}
+	}*/
 };
 
 /**
