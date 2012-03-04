@@ -246,28 +246,25 @@ Dragon.View.prototype.renderTemplate = function(o) {
 
 			xmlhttp.onreadystatechange = function() {
 				if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-    				var res = xmlhttp.responseText;
+
+					var render = document.createElement("div"); //Un-used element to contain templates
+					render.innerHTML = xmlhttp.responseText; //Put templates inside <div> so that they are now HTML
+					var templates = render.getElementsByTagName("script"); //Grab all templates
+
+					//Loop through and find template
+					_.find(templates, function(el, i) {
+						if(el.id == o.id) {
+
+							//Insert template into view
+							_this.el.innerHTML = el;
+
+							return;
+						}
+					});
     			}
   			}
 			xmlhttp.open("GET", o.source, true);
 			xmlhttp.send();
-
-			if(res) {
-				var render = document.createElement("div"); //Un-used element to contain templates
-				render.innerHTML = res.responseText; //Put templates inside <div> so that they are now HTML
-				var templates = render.getElementsByTagName("script"); //Grab all templates
-
-				//Loop through and find template
-				_.find(templates, function(el, i) {
-					if(el.id == o.id) {
-
-						//Insert template into view
-						_this.el.innerHTML = el;
-
-						return;
-					}
-				});
-			}
 		}
 	}
 	/*switch(o.source) {
