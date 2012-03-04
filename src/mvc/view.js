@@ -33,7 +33,7 @@ Dragon.View = function(o) {
 		}
 	} else {
 		_this.height = _this.el.offsetHeight;
-		_this.el.style.height = _this.height + "px";
+		//_this.el.style.height = _this.height + "px";
 	}
 	if(o.init) {
 		_this.init = o.init;
@@ -59,7 +59,7 @@ Dragon.View = function(o) {
 		}		
 	} else {
 		_this.width = _this.el.offsetWidth;
-		_this.el.style.width = _this.width + "px";
+		//_this.el.style.width = _this.width + "px";
 	}
 	
 	//Run initialization, if there is anything there
