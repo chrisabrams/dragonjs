@@ -2,9 +2,10 @@
  * @class Dragon.View
  * @desc Represents the events and optionally the rendering of an element
  */
-Dragon.View = function(o) {
+Dragon.View = function(o, callback) {
 	
 	var _this = this;
+	this.callback = callback || false;
 
 	//Assign objects respective to their instance
 	if(o.el) {
@@ -204,8 +205,10 @@ Dragon.View.prototype.renderTemplate = function(o) {
 							}
 
 							//Insert template into view
-							html = _.template(el.innerHTML, {data: data});
+							html = _.template(el.innerHTML, data);
 							_this.el.innerHTML = html;
+
+							_this.callback();
 
 							return;
 						}
