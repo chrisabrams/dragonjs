@@ -242,7 +242,7 @@ Dragon.View.prototype.renderTemplate = function(o) {
 	if(o.source) {
 		//Make ajax request
 		if (window.XMLHttpRequest) {
-			var request = new XMLHttpRequest();
+			var xmlhttp = new XMLHttpRequest();
 
 			xmlhttp.onreadystatechange = function() {
 				if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
