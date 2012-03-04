@@ -80,7 +80,7 @@ Dragon.View = function(o) {
 	if(o.height) {
 		switch(o.height) {
 			case "window":
-				_this.height = document.body.innerHeight;
+				_this.height = window.innerHeight;
 				_this.el.style.height = _this.height;
 				break;
 
@@ -106,7 +106,7 @@ Dragon.View = function(o) {
 	if(o.width) {
 		switch(o.width) {
 			case "window":
-				_this.width = document.body.innerWidth;
+				_this.width = window.innerWidth;
 				_this.el.style.width = _this.width;
 				break;
 
