@@ -7,7 +7,14 @@ Dragon.View = function(o) {
 	var _this = this;
 
 	//Assign objects respective to their instance
-	this.el = o.el || false;
+	if(o.el) {
+		
+		//If there isn't a template, the element should be embedded on the page
+		if(!o.template) {
+			_this.el = document.getElementById(o.el);
+		}	
+	}
+	
 	if(o.events) {
 		this.events = o.events;
 	}
