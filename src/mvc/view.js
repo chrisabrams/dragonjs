@@ -26,7 +26,7 @@ Dragon.View = function(o) {
 				break;
 
 			default:
-				if(typeof o.height = "number") {
+				if(typeof o.height == "number") {
 					_this.height = o.height;
 					_this.el.style.height = _this.height + "px";
 				}
@@ -52,7 +52,7 @@ Dragon.View = function(o) {
 				break;
 
 			default:
-				if(typeof o.width = "number") {
+				if(typeof o.width ==  "number") {
 					_this.width = o.width;
 					_this.el.style.width = _this.width + "px";
 				}
