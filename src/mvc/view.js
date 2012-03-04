@@ -245,7 +245,7 @@ Dragon.View.prototype.renderTemplate = function(o) {
  *       source: "http://mydomain.com/template.html"
  *     }
  */
-Dragon.View.prototype.template = {
+/*Dragon.View.prototype.template = {
 	data: {},
 	source: "embedded"
-};
+};*/
