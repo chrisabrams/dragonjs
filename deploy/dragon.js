@@ -255,8 +255,16 @@ Dragon.View.prototype.renderTemplate = function(o) {
 					_.find(templates, function(el, i) {
 						if(el.id == o.id) {
 
+							var data;
+							if(o.data) {
+								data = o.data;
+							} else {
+								data = {};
+							}
+
 							//Insert template into view
-							_this.el.innerHTML = el;
+							html = _.template(el.innerHTML, data);
+							_this.el.innerHTML = html;
 
 							return;
 						}
