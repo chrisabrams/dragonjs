@@ -304,10 +304,10 @@ Dragon.View.prototype.renderTemplate = function(o) {
  *       source: "http://mydomain.com/template.html"
  *     }
  */
-Dragon.View.prototype.template = {
+/*Dragon.View.prototype.template = {
 	data: {},
 	source: "embedded"
-};
+};*/
 // Array Remove - By John Resig (MIT Licensed)
 Array.prototype.remove = function(from, to) {
   var rest = this.slice((to || from) + 1 || this.length);
