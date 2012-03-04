@@ -204,7 +204,7 @@ Dragon.View.prototype.renderTemplate = function(o) {
 							}
 
 							//Insert template into view
-							html = _.template(el.innerHTML, data);
+							html = _.template(el.innerHTML, {data: data});
 							_this.el.innerHTML = html;
 
 							return;
