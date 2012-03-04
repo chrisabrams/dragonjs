@@ -6,10 +6,52 @@ Dragon.View = function(o) {
 	
 	//Assign objects respective to their instance
 	this.el = o.el || false;
-	if(o.events) {this.events = o.events}
-	if(o.init) {this.init = o.init}
+	if(o.events) {
+		this.events = o.events;
+	}
+	if(o.height) {
+		switch(o.height) {
+			case "window":
+				this.height = document.body.innerHeight;
+				this.el.style.height = this.height;
+				break;
+
+			default:
+				if(typeof o.height = "number") {
+					this.height = o.height;
+					this.el.style.height = this.height;
+				}
+		}
+	} else {
+		this.height = this.el.offsetHeight;
+		this.el.style.height = this.height;
+	};
+	if(o.init) {
+		this.init = o.init;
+	}
 	if(o.parent) {this.parent = o.parent}
-	if(o.template) {this.template = o.template} else {this.template == false;}
+	if(o.template) {
+		this.template = o.template;
+	} else {
+		this.template == false;
+	}
+	if(o.width) {
+		switch(o.width) {
+			case "window":
+				this.width = document.body.innerWidth;
+				this.el.style.width = this.width;
+				break;
+
+			default:
+				if(typeof o.width = "number") {
+					this.width = o.width;
+					this.el.style.width = this.width;
+				}
+		}		
+	} else {
+		this.width = this.el.offsetWidth;
+		this.el.style.width = this.width;
+	};
 	
 	//Run initialization, if there is anything there
 	this.init();
