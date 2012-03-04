@@ -12,19 +12,19 @@ Dragon.View = function(o) {
 	if(o.height) {
 		switch(o.height) {
 			case "window":
-				this.height = document.body.innerHeight;
-				this.el.style.height = this.height;
+				_this.height = document.body.innerHeight;
+				_this.el.style.height = _this.height;
 				break;
 
 			default:
 				if(typeof o.height = "number") {
-					this.height = o.height;
-					this.el.style.height = this.height;
+					_this.height = o.height;
+					_this.el.style.height = _this.height;
 				}
 		}
 	} else {
-		this.height = this.el.offsetHeight;
-		this.el.style.height = this.height;
+		_this.height = _this.el.offsetHeight;
+		_this.el.style.height = _this.height;
 	};
 	if(o.init) {
 		this.init = o.init;
@@ -38,19 +38,19 @@ Dragon.View = function(o) {
 	if(o.width) {
 		switch(o.width) {
 			case "window":
-				this.width = document.body.innerWidth;
-				this.el.style.width = this.width;
+				_this.width = document.body.innerWidth;
+				_this.el.style.width = _this.width;
 				break;
 
 			default:
 				if(typeof o.width = "number") {
-					this.width = o.width;
-					this.el.style.width = this.width;
+					_this.width = o.width;
+					_this.el.style.width = _this.width;
 				}
 		}		
 	} else {
-		this.width = this.el.offsetWidth;
-		this.el.style.width = this.width;
+		_this.width = _this.el.offsetWidth;
+		_this.el.style.width = _this.width;
 	};
 	
 	//Run initialization, if there is anything there
