@@ -4,6 +4,8 @@
  */
 Dragon.View = function(o) {
 	
+	var _this = this;
+
 	//Assign objects respective to their instance
 	this.el = o.el || false;
 	if(o.events) {
