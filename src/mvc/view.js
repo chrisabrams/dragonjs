@@ -10,9 +10,9 @@ Dragon.View = function(o) {
 	if(o.el) {
 		
 		//If there isn't a template, the element should be embedded on the page
-		if(!o.template) {
+		//if(!o.template) {
 			_this.el = document.getElementById(o.el);
-		}	
+		//}	
 	}
 	
 	if(o.events) {
