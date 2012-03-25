@@ -287,7 +287,10 @@ Dragon.View.prototype.setType = function(type) {
 
 				for(var i = 0; i < aLength; i++) {
 					a[i].onclick = function(e) {
-
+						this.removeClass("nav-selected");
+						if(e.target) {
+							this.addClass("nav-selected")
+						}
 					};
 				}
 				break;
