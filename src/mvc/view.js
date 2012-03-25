@@ -277,12 +277,19 @@ Dragon.View.prototype.renderTemplate = function(o) {
 
 Dragon.View.prototype.setType = function(type) {
 	var _this = this;
-	console.log(_this.el);
+
 	if(typeof type == "string") {
 		switch(type) {
 			case "nav":
 				var nav = _this.el.getElementsByTagName("nav");
-				console.log(nav);
+				var a = nav[0].getElementsByTagName("a");
+				var aLength = a.length;
+
+				for(var i = 0; i < aLength; i++) {
+					a[i].onclick = function(e) {
+
+					};
+				}
 				break;
 		}
 	}

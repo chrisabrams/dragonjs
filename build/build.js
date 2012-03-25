@@ -21,6 +21,7 @@ concat([
     '../src/core/class.js',
     '../src/mvc/view.js',
     '../src/helpers/Array.js',
+    '../src/helpers/Element.js',
     '../src/helpers/Object.js',
     '../src/helpers/String.js'
 ], DIST_FILE_PATH);
@@ -29,11 +30,10 @@ concat([
  * Create minifed
  */
 function uglify(srcPath, distPath) {
-    var
-      uglyfyJS = require('uglify-js'),
-      jsp = uglyfyJS.parser,
-      pro = uglyfyJS.uglify,
-      ast = jsp.parse( _fs.readFileSync(srcPath, FILE_ENCODING) );
+    var uglyfyJS = require('uglify-js'),
+        jsp = uglyfyJS.parser,
+        pro = uglyfyJS.uglify,
+        ast = jsp.parse( _fs.readFileSync(srcPath, FILE_ENCODING) );
 
     ast = pro.ast_mangle(ast);
     ast = pro.ast_squeeze(ast);
