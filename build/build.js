@@ -3,7 +3,7 @@
  */
 var FILE_ENCODING = 'utf-8',
     EOL = '\n',
-    DIST_FILE_PATH = 'deploy/dragon.js';
+    DIST_FILE_PATH = '../deploy/dragon.js';
 
 // setup
 var _fs = require('fs');
@@ -17,12 +17,12 @@ function concat(fileList, distPath) {
 }
 
 concat([
-    'src/core/core.js',
-    'src/core/class.js',
-    'src/mvc/view.js',
-    'src/helpers/Array.js',
-    'src/helpers/Object.js',
-    'src/helpers/String.js'
+    '../src/core/core.js',
+    '../src/core/class.js',
+    '../src/mvc/view.js',
+    '../src/helpers/Array.js',
+    '../src/helpers/Object.js',
+    '../src/helpers/String.js'
 ], DIST_FILE_PATH);
 
 /**
@@ -42,4 +42,4 @@ function uglify(srcPath, distPath) {
     console.log(' '+ distPath +' built.');
 }
 
-uglify('deploy/dragon.js', 'deploy/dragon.min.js');
+uglify('../deploy/dragon.js', '../deploy/dragon.min.js');

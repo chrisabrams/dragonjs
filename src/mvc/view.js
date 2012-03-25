@@ -5,7 +5,13 @@
 Dragon.View = function(o, callback) {
 	
 	var _this = this;
-	this.callback = callback || false;
+	_this.callback = (callback || false);
+	
+	//Setup view type if one is set
+	_this.type = (o.type || false);
+	if(_this.type) {
+		_this.setType(_this.type);
+	}
 
 	//Assign objects respective to their instance
 	if(o.el) {
@@ -45,6 +51,7 @@ Dragon.View = function(o, callback) {
 	} else {
 		_this.template == false;
 	}
+
 	if(o.width) {
 		switch(o.width) {
 			case "window":
@@ -246,9 +253,9 @@ Dragon.View.prototype.renderTemplate = function(o) {
 };
 
 /**
- * @method Dragon.View.template
+ * @object Dragon.View.template
  * @desc   Holds options for template
- * @usage  Required
+ * @usage  Optional
  * @type   {Object}
  *
  * @example
@@ -260,3 +267,23 @@ Dragon.View.prototype.renderTemplate = function(o) {
 	data: {},
 	source: "embedded"
 };*/
+
+/**
+ * @method Dragon.View.setType
+ * @desc   Sets up special conditions on certain types of views
+ * @usage  Private
+ * @type   {Function}
+ */
+
+Dragon.View.prototype.setType = function(type) {
+	var _this = this;
+
+	if(typeof type == "string") {
+		switch(type) {
+			case "nav":
+				var nav = _this.el.getElementsByTagName("nav");
+				console.log(nav);
+				break;
+		}
+	}
+};
