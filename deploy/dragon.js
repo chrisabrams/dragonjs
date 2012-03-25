@@ -65,12 +65,6 @@ Dragon.View = function(o, callback) {
 	
 	var _this = this;
 	_this.callback = (callback || false);
-	
-	//Setup view type if one is set
-	_this.type = (o.type || false);
-	if(_this.type) {
-		_this.setType(_this.type);
-	}
 
 	//Assign objects respective to their instance
 	if(o.el) {
@@ -109,6 +103,12 @@ Dragon.View = function(o, callback) {
 		_this.template = o.template;
 	} else {
 		_this.template == false;
+	}
+
+	//Setup view type if one is set
+	_this.type = (o.type || false);
+	if(_this.type) {
+		_this.setType(_this.type);
 	}
 
 	if(o.width) {
