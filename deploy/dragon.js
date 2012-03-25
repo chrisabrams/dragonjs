@@ -337,19 +337,32 @@ Dragon.View.prototype.renderTemplate = function(o) {
 Dragon.View.prototype.setType = function(type) {
 	var _this = this;
 
+	//Type needs to be a string
 	if(typeof type == "string") {
+		//Find the type
 		switch(type) {
+			
 			case "nav":
-				var nav = _this.el.getElementsByTagName("nav");
-				var a = nav[0].getElementsByTagName("a");
-				var aLength = a.length;
+				var nav = _this.el.getElementsByTagName("nav"); //Get navigation
+				var a = nav[0].getElementsByTagName("a"); //Get anchor tags in navigation
+				var aLength = a.length; //Get # of anchor tags
 
+				//Loop through all anchor tags
 				for(var i = 0; i < aLength; i++) {
+					
 					a[i].onclick = function(e) {
-						this.removeClass("nav-selected");
+						
+						//If anchor tag was clicked
 						if(e.target) {
 							this.addClass("nav-selected")
 						}
+
+						//Otherwise
+						else {
+							this.removeClass("nav-selected");
+						}
+
+						return;
 					};
 				}
 				break;
