@@ -336,7 +336,7 @@ Dragon.View.prototype.renderTemplate = function(o) {
 
 Dragon.View.prototype.setType = function(type) {
 	var _this = this;
-
+	console.log(_this.el);
 	if(typeof type == "string") {
 		switch(type) {
 			case "nav":
