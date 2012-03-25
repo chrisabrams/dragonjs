@@ -293,17 +293,17 @@ Dragon.View.prototype.setType = function(type) {
 					
 					a[i].onclick = function(e) {
 						
+						//Loop through all anchor tags
+						for(var j = 0; j < aLength; j++) {
+							a[j].removeClass("nav-selected");
+						}
+
 						//If anchor tag was clicked
 						if(e.target) {
-							this.addClass("nav-selected")
+							this.addClass("nav-selected");
 						}
 
-						//Otherwise
-						else {
-							this.removeClass("nav-selected");
-						}
-
-						return;
+						return false;
 					};
 				}
 				break;
