@@ -81,7 +81,7 @@ Dragon.View = function(o, callback) {
 	if(o.height) {
 		var setHeight = function(_this, h, resize) {
 			var height = function(_this, h) {
-				_this.height = h;
+				_this.height = h;console.log(_this.el.id, " ", h);
 				_this.el.style.height = _this.height + "px";
 			};
 
