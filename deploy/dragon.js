@@ -79,30 +79,30 @@ Dragon.View = function(o, callback) {
 		_this.events = o.events;
 	}
 	if(o.height) {
-		var setHeight = function(h, resize) {
-			var height = function(h) {
+		var setHeight = function(_this, h, resize) {
+			var height = function(_this, h) {
 				_this.height = h;
 				_this.el.style.height = _this.height + "px";
 			};
 
-			height(h);
+			height(_this, h);
 
 			//When window re-sizes
 			if(resize) {
 				window.onresize = function(e) {
-					height(h);
+					height(_this, h);
 				};
 			}
 		};
 
 		switch(o.height) {
 			case "window":
-				setHeight(window.innnerHeight, true);
+				setHeight(_this, window.innnerHeight, true);
 				break;
 
 			default:
 				if(typeof o.height == "number") {
-					setHeight(o.height);
+					setHeight(_this, o.height);
 				}
 		}
 	} else {
