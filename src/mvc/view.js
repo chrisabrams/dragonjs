@@ -20,21 +20,34 @@ Dragon.View = function(o, callback) {
 		_this.events = o.events;
 	}
 	if(o.height) {
+		var setHeight = function(h, resize) {
+			var height = function(h) {
+				_this.height = h;
+				_this.el.style.height = _this.height + "px";
+			};
+
+			height(h);
+
+			//When window re-sizes
+			if(resize) {
+				window.onresize = function(e) {
+					height(h);
+				};
+			}
+		};
+
 		switch(o.height) {
 			case "window":
-				_this.height = window.innerHeight;
-				_this.el.style.height = _this.height + "px";
+				setHeight(window.innnerHeight, true);
 				break;
 
 			default:
 				if(typeof o.height == "number") {
-					_this.height = o.height;
-					_this.el.style.height = _this.height + "px";
+					setHeight(o.height);
 				}
 		}
 	} else {
 		_this.height = _this.el.offsetHeight;
-		//_this.el.style.height = _this.height + "px";
 	}
 	if(o.init) {
 		_this.init = o.init;
