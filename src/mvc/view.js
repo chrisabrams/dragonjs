@@ -38,7 +38,7 @@ Dragon.View = function(o, callback) {
 
 		switch(o.height) {
 			case "window":
-				setHeight(_this, window.innnerHeight, true);
+				setHeight(_this, window.innerHeight, true);
 				break;
 
 			default:
