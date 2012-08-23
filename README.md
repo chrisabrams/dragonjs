@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/chrisabrams/dragonjs.png)](http://travis-ci.org/chrisabrams/dragonjs)
 # Dragon.js v0.0.1
 
 ## Usage
